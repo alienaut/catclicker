@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cat Clicker</title>
+</head>
+
+<body>
+  <img id="kitten" src="images/cat.jpeg" alt="A cute kitten">
+
+  <p>You clicked <span id="click-count">0</span> times</p>
+
+  <script>
+    var kitten = document.getElementById('kitten');
+    var clickCount = document.getElementById('click-count');
+
+    var handleClick = function() {
+      console.log('You clicked to a kitten!!!11');
+      var count = clickCount.textContent;
+      clickCount.textContent = parseInt(count) + 1;
+    }
+
+    kitten.addEventListener('click', handleClick, false);
+
+  </script>
+</body>
+
+</html>
