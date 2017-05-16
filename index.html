@@ -4,24 +4,48 @@
 <head>
   <meta charset="UTF-8">
   <title>Cat Clicker</title>
+  <style>
+    div {
+      display: table;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    .container {
+      margin: 10px auto 10px;
+    }
+
+  </style>
 </head>
 
 <body>
-  <img id="kitten" src="images/cat.jpeg" alt="A cute kitten">
-
-  <p>You clicked <span id="click-count">0</span> times</p>
-
+  <div class="container">
+    <div class="kitten" data-kitten-number="1">
+      <img class="kitten-image" src="images/kitten1.jpeg" alt="A cute kitten">
+      <p>You clicked <span class="click-count">0</span> times</p>
+    </div>
+    <div class="kitten" data-kitten-number="2">
+      <img class="kitten-image" src="images/kitten2.jpeg" alt="A cute kitten">
+      <p>You clicked <span class="click-count">0</span> times</p>
+    </div>
+  </div>
   <script>
-    var kitten = document.getElementById('kitten');
-    var clickCount = document.getElementById('click-count');
+    var handleClick = function(e) {
+      var clickedElement = e.target;
 
-    var handleClick = function() {
-      console.log('You clicked to a kitten!!!11');
-      var count = clickCount.textContent;
-      clickCount.textContent = parseInt(count) + 1;
+      if (clickedElement.classList.contains('kitten-image')) {
+        console.log('hello');
+
+        var clickCounter = clickedElement.parentNode.querySelector('.click-count');
+
+        var count = clickCounter.textContent;
+        clickCounter.textContent = parseInt(count) + 1;
+      }
     }
 
-    kitten.addEventListener('click', handleClick, false);
+    document.body.addEventListener('click', handleClick, false);
 
   </script>
 </body>
